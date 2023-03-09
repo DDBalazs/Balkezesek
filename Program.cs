@@ -8,13 +8,49 @@ namespace HelloWorld
     {
         //2. lépés
         static List<Balkezesek> Balkezes_Lista = new List<Balkezesek>();
+        static int bekert;
         static void Main(string[] args)
         {
-            Feladat2();
+            Feladat2(); Console.WriteLine();
             Feladat3(); Console.WriteLine();
             Feladat4(); Console.WriteLine();
+            Feladat5(); Console.WriteLine();
+            
         }
 
+        private static void Feladat6()
+        {
+            Console.WriteLine("6. Feladat");
+            double osszeg = 0;
+            int db = 0;
+            foreach(var b in Balkezes_Lista)
+            {
+                if (b.elso.Contains(bekert.ToString()))
+                {
+                    osszeg += b.suly;
+                    db++;
+                }
+            }
+            double Atlagsuly = osszeg / db;
+            Console.WriteLine($"A játékosoknak jelenlegi súlya: {Atlagsuly:0.00}");
+
+        }
+        private static void Feladat5()
+        {
+            bekert = 0;
+            bool Sikerlt = false;
+            while(bekert<1990 || 1999< bekert)
+            {
+                Console.WriteLine("Adjon meg egy évszámot");
+                bekert = int.Parse(Console.ReadLine());
+                if(1990<=bekert && bekert <= 1999)
+                {
+                    Sikerlt = true;
+                }
+            }
+            if(Sikerlt==true)
+            { Feladat6(); Console.WriteLine(); }
+        }
         private static void Feladat4()
         {
             Console.WriteLine("4. Feladat: 1999. október");
